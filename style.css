@@ -1,0 +1,152 @@
+/* --- 1. Variables & Reset --- */
+:root {
+    --primary: #5c7c64; /* Sage Green (Natural Look) */
+    --secondary: #d4a373; /* Gold/Beige */
+    --bg-light: #f9f7f2; /* Off-white */
+    --text-dark: #333;
+    --white: #fff;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-dark); }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* --- 2. Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo { font-size: 1.8rem; font-weight: bold; font-family: var(--font-heading); letter-spacing: 1px; }
+.logo span { color: var(--primary); }
+
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { font-weight: 500; transition: 0.3s; font-size: 0.9rem; text-transform: uppercase; }
+.nav-links a:hover, .nav-links a.active { color: var(--primary); }
+
+.nav-icons i { margin-left: 20px; cursor: pointer; font-size: 1.2rem; transition: 0.3s; }
+.nav-icons i:hover { color: var(--primary); }
+.hamburger { display: none; }
+
+/* --- 3. Hero Section --- */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1605265058724-958a5e84241d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero h4 { color: var(--secondary); letter-spacing: 2px; margin-bottom: 10px; font-family: var(--font-body); }
+.hero h1 { font-size: 4rem; line-height: 1.2; margin-bottom: 20px; color: var(--white); }
+.hero p { max-width: 600px; margin-bottom: 30px; font-size: 1.1rem; }
+
+.btn {
+    padding: 12px 30px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.btn:hover { background: #4a6350; }
+.btn-white { background: var(--white); color: var(--text-dark); }
+.btn-white:hover { background: var(--primary); color: var(--white); }
+
+/* --- 4. Features --- */
+.section-padding { padding: 80px 5%; }
+.features { display: flex; justify-content: space-between; text-align: center; flex-wrap: wrap; }
+.feature-box { flex: 1; min-width: 200px; margin: 20px; }
+.feature-box i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+
+/* --- 5. Product Grid --- */
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
+
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+
+.product-card { background: var(--white); transition: 0.3s; cursor: pointer; }
+.product-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+.img-box { position: relative; overflow: hidden; height: 300px; }
+.img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.product-card:hover img { transform: scale(1.1); }
+
+.tag { position: absolute; top: 10px; left: 10px; background: var(--secondary); color: #fff; padding: 5px 10px; font-size: 0.8rem; }
+
+.overlay {
+    position: absolute; bottom: -50px; left: 0; width: 100%; height: 50px;
+    background: rgba(255,255,255,0.9); display: flex; justify-content: center; align-items: center;
+    transition: 0.3s;
+}
+.product-card:hover .overlay { bottom: 0; }
+.add-cart { border: none; background: none; color: var(--primary); font-weight: bold; cursor: pointer; text-transform: uppercase; }
+
+.details { padding: 15px; text-align: center; }
+.details h3 { font-size: 1.2rem; font-family: var(--font-body); margin-bottom: 5px; }
+.price { color: var(--primary); font-weight: bold; font-size: 1.1rem; }
+
+/* --- 6. Parallax Banner --- */
+.banner-parallax {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.banner-parallax h2 { font-size: 3rem; color: white; margin-bottom: 10px; }
+.banner-parallax p { font-size: 1.2rem; margin-bottom: 20px; }
+
+/* --- 7. Footer --- */
+footer { background: #222; color: #ccc; padding: 60px 5% 20px; }
+.footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 40px; }
+.footer-col { flex: 1; min-width: 250px; margin-bottom: 20px; }
+.footer-col h3 { color: var(--white); margin-bottom: 20px; font-family: var(--font-heading); }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a:hover { color: var(--secondary); }
+.socials i { margin-right: 15px; font-size: 1.2rem; cursor: pointer; }
+.copyright { text-align: center; border-top: 1px solid #444; padding-top: 20px; font-size: 0.9rem; }
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute; top: 70px; right: -100%; width: 100%; height: 100vh;
+        background: var(--white); flex-direction: column; align-items: center;
+        justify-content: center; transition: 0.4s;
+    }
+    .nav-links.active { right: 0; }
+    .hamburger { display: block; cursor: pointer; font-size: 1.5rem; margin-left: 15px; }
+    .hero h1 { font-size: 2.5rem; }
+}
