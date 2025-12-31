@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - NisargamSoap</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Nisargam<span>Soap</span>.</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html" class="active">Shop</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-shopping-bag"></i>
+            <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <header class="page-header" style="background-image: url('https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+        <h1>All Products</h1>
+    </header>
+
+    <section class="products">
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
+                    <div class="overlay"><button class="add-cart">Add to Cart</button></div>
+                </div>
+                <div class="details">
+                    <h3>Lavender Bliss</h3>
+                    <span class="price">₹150</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
+                    <div class="overlay"><button class="add-cart">Add to Cart</button></div>
+                </div>
+                <div class="details">
+                    <h3>Charcoal Detox</h3>
+                    <span class="price">₹180</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1547793549-70fa8892b1a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
+                    <div class="overlay"><button class="add-cart">Add to Cart</button></div>
+                </div>
+                <div class="details">
+                    <h3>Coffee Scrub</h3>
+                    <span class="price">₹160</span>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
+                    <div class="overlay"><button class="add-cart">Add to Cart</button></div>
+                </div>
+                <div class="details">
+                    <h3>Rose Petal</h3>
+                    <span class="price">₹200</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyright"><p>&copy; 2025 NisargamSoap.</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
