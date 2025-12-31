@@ -1,15 +1,19 @@
-/* --- 1. Variables & Reset --- */
+/* --- 1. Variables & Global Settings --- */
 :root {
-    --primary: #5c7c64; /* Sage Green (Natural Look) */
-    --secondary: #d4a373; /* Gold/Beige */
-    --bg-light: #f9f7f2; /* Off-white */
-    --text-dark: #333;
-    --white: #fff;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Montserrat', sans-serif;
+    --primary: #5c7c64;      /* Sage Green (नॅचरल फीलसाठी) */
+    --secondary: #d4a373;    /* Gold/Beige (प्रीमियम लूक) */
+    --bg-light: #f9f7f2;     /* Off-white Background */
+    --text-dark: #333;       /* Dark Text */
+    --white: #ffffff;
+    --font-heading: 'Playfair Display', serif; /* लक्झरी फॉन्ट */
+    --font-body: 'Montserrat', sans-serif;     /* क्लीन फॉन्ट */
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: var(--font-body);
@@ -18,41 +22,63 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-dark); }
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--text-dark);
+}
+
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-/* --- 2. Navbar --- */
+/* --- 2. Navbar (Menu) --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
     background: var(--white);
-    position: sticky;
+    position: sticky; /* वर चिकटून राहण्यासाठी */
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.logo { font-size: 1.8rem; font-weight: bold; font-family: var(--font-heading); letter-spacing: 1px; }
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+}
 .logo span { color: var(--primary); }
 
 .nav-links { display: flex; gap: 30px; }
-.nav-links a { font-weight: 500; transition: 0.3s; font-size: 0.9rem; text-transform: uppercase; }
+
+.nav-links a {
+    font-weight: 500;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
 .nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
-.nav-icons i { margin-left: 20px; cursor: pointer; font-size: 1.2rem; transition: 0.3s; }
+.nav-icons i {
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
 .nav-icons i:hover { color: var(--primary); }
-.hamburger { display: none; }
 
-/* --- 3. Hero Section --- */
+.hamburger { display: none; } /* डेस्कटॉपवर हॅम्बर्गर दिसणार नाही */
+
+/* --- 3. Hero Section (Main Banner) --- */
 .hero {
     height: 90vh;
+    /* BACKGROUND IMAGE HERE - इथे तुझा मुख्य फोटो टाक */
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1605265058724-958a5e84241d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Parallax Effect */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,60 +86,164 @@ ul { list-style: none; }
     color: var(--white);
 }
 
-.hero h4 { color: var(--secondary); letter-spacing: 2px; margin-bottom: 10px; font-family: var(--font-body); }
-.hero h1 { font-size: 4rem; line-height: 1.2; margin-bottom: 20px; color: var(--white); }
-.hero p { max-width: 600px; margin-bottom: 30px; font-size: 1.1rem; }
+.hero h4 {
+    color: var(--secondary);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--white);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+.hero p {
+    max-width: 600px;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
 
+/* Button Styling */
 .btn {
-    padding: 12px 30px;
+    padding: 12px 35px;
     background: var(--primary);
     color: var(--white);
     border: none;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border-radius: 2px;
 }
-.btn:hover { background: #4a6350; }
-.btn-white { background: var(--white); color: var(--text-dark); }
-.btn-white:hover { background: var(--primary); color: var(--white); }
+.btn:hover { background: #4a6350; transform: translateY(-3px); }
 
-/* --- 4. Features --- */
+.btn-white {
+    background: var(--white);
+    color: var(--text-dark);
+}
+.btn-white:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* --- 4. Features Section --- */
 .section-padding { padding: 80px 5%; }
-.features { display: flex; justify-content: space-between; text-align: center; flex-wrap: wrap; }
-.feature-box { flex: 1; min-width: 200px; margin: 20px; }
-.feature-box i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+
+.features {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+    background: var(--white);
+}
+.feature-box {
+    flex: 1;
+    min-width: 200px;
+    margin: 20px;
+    padding: 20px;
+}
+.feature-box i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+.feature-box h3 { font-size: 1.1rem; letter-spacing: 1px; }
 
 /* --- 5. Product Grid --- */
-.section-title { text-align: center; margin-bottom: 50px; }
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
 .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
+.section-title p { color: #666; font-style: italic; }
 
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
 
-.product-card { background: var(--white); transition: 0.3s; cursor: pointer; }
-.product-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.product-card {
+    background: var(--white);
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.product-card:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
-.img-box { position: relative; overflow: hidden; height: 300px; }
-.img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+/* Image Zoom Effect */
+.img-box {
+    position: relative;
+    overflow: hidden;
+    height: 320px;
+}
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
 .product-card:hover img { transform: scale(1.1); }
 
-.tag { position: absolute; top: 10px; left: 10px; background: var(--secondary); color: #fff; padding: 5px 10px; font-size: 0.8rem; }
+/* New Tag */
+.tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--secondary);
+    color: #fff;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
 
+/* Add to Cart Button Overlay */
 .overlay {
-    position: absolute; bottom: -50px; left: 0; width: 100%; height: 50px;
-    background: rgba(255,255,255,0.9); display: flex; justify-content: center; align-items: center;
+    position: absolute;
+    bottom: -60px; /* लपवून ठेवले आहे */
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: rgba(255,255,255,0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+.product-card:hover .overlay { bottom: 0; } /* होव्हर केल्यावर वर येईल */
+
+.add-cart {
+    border: 1px solid var(--primary);
+    padding: 8px 20px;
+    background: transparent;
+    color: var(--primary);
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.8rem;
     transition: 0.3s;
 }
-.product-card:hover .overlay { bottom: 0; }
-.add-cart { border: none; background: none; color: var(--primary); font-weight: bold; cursor: pointer; text-transform: uppercase; }
+.add-cart:hover { background: var(--primary); color: white; }
 
-.details { padding: 15px; text-align: center; }
-.details h3 { font-size: 1.2rem; font-family: var(--font-body); margin-bottom: 5px; }
+.details { padding: 20px; text-align: center; }
+.details h3 {
+    font-size: 1.2rem;
+    font-family: var(--font-body);
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
 .price { color: var(--primary); font-weight: bold; font-size: 1.1rem; }
 
-/* --- 6. Parallax Banner --- */
+/* --- 6. Parallax Banner (Offers) --- */
 .banner-parallax {
+    /* BACKGROUND IMAGE HERE - इथे गिफ्ट हॅम्परचा फोटो टाक */
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
     height: 400px;
     background-attachment: fixed;
@@ -125,28 +255,87 @@ ul { list-style: none; }
     justify-content: center;
     text-align: center;
     color: white;
+    margin-top: 50px;
 }
 .banner-parallax h2 { font-size: 3rem; color: white; margin-bottom: 10px; }
-.banner-parallax p { font-size: 1.2rem; margin-bottom: 20px; }
+.banner-parallax p { font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 1px; }
 
 /* --- 7. Footer --- */
-footer { background: #222; color: #ccc; padding: 60px 5% 20px; }
-.footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 40px; }
-.footer-col { flex: 1; min-width: 250px; margin-bottom: 20px; }
-.footer-col h3 { color: var(--white); margin-bottom: 20px; font-family: var(--font-heading); }
-.footer-col ul li { margin-bottom: 10px; }
-.footer-col ul li a:hover { color: var(--secondary); }
-.socials i { margin-right: 15px; font-size: 1.2rem; cursor: pointer; }
-.copyright { text-align: center; border-top: 1px solid #444; padding-top: 20px; font-size: 0.9rem; }
+footer {
+    background: #222;
+    color: #ccc;
+    padding: 70px 5% 20px;
+    margin-top: 0;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 30px;
+}
+.footer-col h3 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+.footer-col p { font-size: 0.9rem; margin-bottom: 10px; }
 
-/* --- Mobile Responsive --- */
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { transition: 0.3s; font-size: 0.9rem; }
+.footer-col ul li a:hover { color: var(--secondary); padding-left: 5px; }
+
+.socials i {
+    margin-right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.socials i:hover { color: var(--secondary); }
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #777;
+}
+
+/* --- 8. Mobile Responsive (महत्त्वाचे) --- */
 @media (max-width: 768px) {
+    /* Navbar Adjustment */
     .nav-links {
-        position: absolute; top: 70px; right: -100%; width: 100%; height: 100vh;
-        background: var(--white); flex-direction: column; align-items: center;
-        justify-content: center; transition: 0.4s;
+        position: absolute;
+        top: 70px;
+        right: -100%; /* स्क्रीनच्या बाहेर */
+        width: 100%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 60px;
+        transition: 0.4s;
     }
-    .nav-links.active { right: 0; }
-    .hamburger { display: block; cursor: pointer; font-size: 1.5rem; margin-left: 15px; }
+    .nav-links.active { right: 0; } /* मेनू ओपन झाल्यावर */
+    
+    .nav-links li { margin: 20px 0; }
+    
+    .hamburger {
+        display: block; /* मोबाईलवर आयकॉन दिसेल */
+        cursor: pointer;
+        font-size: 1.5rem;
+        margin-left: 15px;
+        color: var(--text-dark);
+    }
+
+    /* Font Sizes Adjustment */
     .hero h1 { font-size: 2.5rem; }
+    .hero p { padding: 0 20px; }
+    .banner-parallax h2 { font-size: 2rem; }
 }
