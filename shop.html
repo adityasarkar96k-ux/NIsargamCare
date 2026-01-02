@@ -21,7 +21,10 @@
         </ul>
         <div class="nav-icons">
             <i class="fas fa-search"></i>
-            <i class="fas fa-shopping-bag"></i>
+            <div style="position: relative; display: inline-block;">
+                <i class="fas fa-shopping-bag" onclick="toggleCart()"></i>
+                <span id="navCartCount" class="nav-badge">0</span>
+            </div>
             <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         </div>
     </nav>
@@ -36,7 +39,9 @@
             <div class="product-card">
                 <div class="img-box">
                     <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
-                    <div class="overlay"><button class="add-cart">Add to Cart</button></div>
+                    <div class="overlay">
+                        <button class="add-cart" onclick="addToCart('Lavender Bliss', 150, 'https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
+                    </div>
                 </div>
                 <div class="details">
                     <h3>Lavender Bliss</h3>
@@ -47,7 +52,9 @@
             <div class="product-card">
                 <div class="img-box">
                     <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
-                    <div class="overlay"><button class="add-cart">Add to Cart</button></div>
+                    <div class="overlay">
+                        <button class="add-cart" onclick="addToCart('Charcoal Detox', 180, 'https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
+                    </div>
                 </div>
                 <div class="details">
                     <h3>Charcoal Detox</h3>
@@ -58,7 +65,9 @@
             <div class="product-card">
                 <div class="img-box">
                     <img src="https://images.unsplash.com/photo-1547793549-70fa8892b1a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
-                    <div class="overlay"><button class="add-cart">Add to Cart</button></div>
+                    <div class="overlay">
+                        <button class="add-cart" onclick="addToCart('Coffee Scrub', 160, 'https://images.unsplash.com/photo-1547793549-70fa8892b1a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
+                    </div>
                 </div>
                 <div class="details">
                     <h3>Coffee Scrub</h3>
@@ -69,7 +78,9 @@
             <div class="product-card">
                 <div class="img-box">
                     <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
-                    <div class="overlay"><button class="add-cart">Add to Cart</button></div>
+                    <div class="overlay">
+                        <button class="add-cart" onclick="addToCart('Rose Petal', 200, 'https://images.unsplash.com/photo-1596462502278-27bfdd403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
+                    </div>
                 </div>
                 <div class="details">
                     <h3>Rose Petal</h3>
@@ -81,8 +92,49 @@
     </section>
 
     <footer>
-        <div class="copyright"><p>&copy; 2025 NisargamSoap.</p></div>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>NisargamSoap.</h3>
+                <p>Pure, Natural, and Handcrafted with love in India.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="terms.html">T&C</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>Rashin, Ahmednagar - 414403</p>
+                <p>+91 7385585398</p>
+                <div class="socials">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-facebook"></i>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 NisargamSoap.</p>
+        </div>
     </footer>
+
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart (<span id="cartCount">0</span>)</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <p style="text-align:center; margin-top:20px;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-price">Total: ₹<span id="cartTotal">0</span></div>
+            <button onclick="checkoutWhatsApp()" class="btn" style="width: 100%;">Checkout on WhatsApp <i class="fab fa-whatsapp"></i></button>
+        </div>
+    </div>
+    <div id="cartOverlay" class="cart-overlay" onclick="toggleCart()"></div>
 
     <script src="script.js"></script>
 </body>
