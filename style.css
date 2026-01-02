@@ -1,12 +1,12 @@
 /* --- 1. Variables & Global Settings --- */
 :root {
-    --primary: #5c7c64;      
-    --secondary: #d4a373;    
-    --bg-light: #f9f7f2;     
-    --text-dark: #333;       
+    --primary: #5c7c64;      /* Sage Green (Natural) */
+    --secondary: #d4a373;    /* Gold/Beige (Premium) */
+    --bg-light: #f9f7f2;     /* Off-white Background */
+    --text-dark: #333;       /* Dark Text */
     --white: #ffffff;
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Montserrat', sans-serif;
+    --font-heading: 'Playfair Display', serif; /* Luxury Font */
+    --font-body: 'Montserrat', sans-serif;     /* Clean Font */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -40,14 +40,14 @@ ul { list-style: none; }
 .nav-icons i:hover { color: var(--primary); }
 .hamburger { display: none; }
 
-/* Nav Badge */
+/* Nav Badge (Cart Count) */
 .nav-badge {
     background: var(--secondary); color: white;
     font-size: 0.7rem; padding: 2px 6px; border-radius: 50%;
     position: absolute; top: -5px; right: -8px;
 }
 
-/* --- 3. Hero Section --- */
+/* --- 3. Hero Section (Home) --- */
 .hero {
     height: 90vh;
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1605265058724-958a5e84241d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -57,8 +57,9 @@ ul { list-style: none; }
 }
 .hero h4 { color: var(--secondary); letter-spacing: 2px; margin-bottom: 10px; font-weight: 600; }
 .hero h1 { font-size: 4rem; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); }
+.hero p { max-width: 600px; margin-bottom: 30px; font-size: 1.1rem; }
 
-/* --- 4. Page Headers --- */
+/* --- 4. Page Headers (Internal Pages) --- */
 .page-header {
     height: 40vh;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1556228720-191738209219?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
@@ -68,12 +69,18 @@ ul { list-style: none; }
 }
 .page-header h1 { font-size: 3rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
 
-/* --- 5. Features & Products --- */
+/* --- 5. Features & Buttons --- */
 .section-padding { padding: 80px 5%; }
 .features { display: flex; justify-content: space-between; text-align: center; flex-wrap: wrap; background: var(--white); }
 .feature-box { flex: 1; min-width: 200px; margin: 20px; padding: 20px; }
 .feature-box i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
 
+.btn { padding: 12px 35px; background: var(--primary); color: var(--white); border: none; font-weight: 600; cursor: pointer; transition: 0.3s; text-transform: uppercase; border-radius: 2px; }
+.btn:hover { background: #4a6350; transform: translateY(-3px); }
+.btn-white { background: var(--white); color: var(--text-dark); }
+.btn-white:hover { background: var(--primary); color: var(--white); }
+
+/* --- 6. Product Grid (Shop) --- */
 .products { padding: 0 5% 80px; }
 .section-title { text-align: center; margin-bottom: 50px; }
 .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -93,9 +100,43 @@ ul { list-style: none; }
 .add-cart { border: 1px solid var(--primary); padding: 8px 20px; background: transparent; color: var(--primary); font-weight: bold; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
 .add-cart:hover { background: var(--primary); color: white; }
 .details { padding: 20px; text-align: center; }
+.details h3 { font-size: 1.2rem; margin-bottom: 8px; font-family: var(--font-body); }
 .price { color: var(--primary); font-weight: bold; font-size: 1.1rem; }
 
-/* --- 6. Cart Sidebar --- */
+/* --- 7. Product Detail Page (NEW) --- */
+.detail-container {
+    display: flex; gap: 50px; align-items: center; max-width: 1000px; margin: 0 auto;
+}
+.detail-img { flex: 1; }
+.detail-img img { width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+.detail-info { flex: 1; text-align: left; }
+.detail-info h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 5px; }
+.detail-info h1 { font-size: 2.5rem; margin: 10px 0; line-height: 1.2; }
+.detail-info .price { color: var(--primary); font-size: 1.8rem; margin-bottom: 20px; display: block; }
+.description { color: #555; line-height: 1.7; margin-bottom: 20px; }
+
+.benefits { list-style: none; margin-bottom: 20px; }
+.benefits li { margin-bottom: 10px; font-size: 0.9rem; }
+.benefits li i { color: var(--primary); margin-right: 10px; }
+
+/* --- 8. Reviews Section (NEW) --- */
+.reviews-section {
+    padding: 60px 5%; background: #fff; border-top: 1px solid #eee; margin-top: 50px;
+}
+.review-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+    max-width: 1000px; margin: 0 auto;
+}
+.review-card {
+    background: var(--bg-light); padding: 20px; border-radius: 5px;
+    border-left: 4px solid var(--secondary); box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.stars { color: #f1c40f; margin-bottom: 10px; letter-spacing: 2px; }
+.review-text { font-style: italic; color: #555; font-size: 0.95rem; margin-bottom: 15px; }
+.reviewer-name { font-weight: bold; font-family: var(--font-heading); color: var(--text-dark); }
+
+/* --- 9. Cart Sidebar --- */
 .cart-sidebar {
     position: fixed; top: 0; right: -400px; width: 350px; height: 100vh;
     background: #fff; box-shadow: -5px 0 15px rgba(0,0,0,0.1);
@@ -108,95 +149,57 @@ ul { list-style: none; }
 .cart-item { display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
 .cart-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 5px; margin-right: 15px; }
 .item-info { flex: 1; }
-.item-remove { color: red; cursor: pointer; }
+.item-info h4 { font-size: 0.9rem; margin-bottom: 5px; }
+.item-remove { color: red; cursor: pointer; font-size: 0.9rem; }
 .cart-footer { padding: 20px; border-top: 1px solid #ddd; background: #f9f9f9; }
+.total-price { font-size: 1.2rem; font-weight: bold; margin-bottom: 15px; text-align: right; }
 .cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1500; display: none; }
 .cart-overlay.show { display: block; }
 
-/* --- 7. Contact Form --- */
+/* --- 10. Forms & General Text --- */
+.text-content { max-width: 800px; margin: 0 auto; padding: 0 20px 80px; text-align: center; }
+.text-content p { margin-bottom: 20px; font-size: 1.1rem; color: #555; }
+
 .contact-container { display: flex; justify-content: center; padding: 0 5% 80px; }
 .contact-form { width: 100%; max-width: 600px; background: var(--white); padding: 40px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-radius: 5px; border-top: 5px solid var(--primary); }
 .form-group { margin-bottom: 20px; }
 .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: var(--font-body); }
 .form-group textarea { height: 120px; resize: none; }
 
-/* --- 8. Footer & Parallax --- */
+/* --- 11. Footer & Parallax --- */
 .banner-parallax {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
     height: 400px; background-attachment: fixed; background-position: center; background-size: cover;
     display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 50px;
 }
-.btn { padding: 12px 35px; background: var(--primary); color: var(--white); border: none; font-weight: 600; cursor: pointer; transition: 0.3s; text-transform: uppercase; border-radius: 2px; }
-.btn:hover { background: #4a6350; }
-.btn-white { background: var(--white); color: var(--text-dark); }
-.btn-white:hover { background: var(--primary); color: var(--white); }
+.banner-parallax h2 { font-size: 3rem; margin-bottom: 10px; }
 
 footer { background: #222; color: #ccc; padding: 70px 5% 20px; }
 .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 40px; }
 .footer-col { flex: 1; min-width: 250px; margin-bottom: 30px; }
+.footer-col h3 { color: var(--white); margin-bottom: 20px; font-family: var(--font-heading); font-size: 1.5rem; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a:hover { color: var(--secondary); }
+.socials i { margin-right: 15px; font-size: 1.5rem; cursor: pointer; transition: 0.3s; }
+.socials i:hover { color: var(--secondary); }
 .copyright { text-align: center; border-top: 1px solid #444; padding-top: 20px; font-size: 0.8rem; color: #777; }
 
-/* --- 9. Mobile Responsive --- */
+/* --- 12. Mobile Responsive --- */
 @media (max-width: 768px) {
     .nav-links { position: absolute; top: 70px; right: -100%; width: 100%; height: 100vh; background: var(--white); flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 60px; transition: 0.4s; }
     .nav-links.active { right: 0; }
     .nav-links li { margin: 20px 0; }
     .hamburger { display: block; cursor: pointer; font-size: 1.5rem; margin-left: 15px; }
-    .cart-sidebar { width: 100%; right: -100%; }
-
-    /* --- Product Details Page --- */
-.detail-container {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.detail-img { flex: 1; }
-.detail-img img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.detail-info { flex: 1; text-align: left; }
-.detail-info h4 { color: #888; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-.detail-info h1 { font-size: 2.5rem; margin: 10px 0; }
-.detail-info .price { color: var(--primary); font-size: 1.8rem; margin-bottom: 20px; }
-.description { color: #555; line-height: 1.7; margin-bottom: 20px; }
-
-.benefits { list-style: none; margin-bottom: 20px; }
-.benefits li { margin-bottom: 10px; font-size: 0.9rem; }
-.benefits li i { color: var(--primary); margin-right: 10px; }
-
-/* --- Review Section --- */
-.reviews-section {
-    padding: 60px 5%;
-    background: #fff;
-    border-top: 1px solid #eee;
-}
-.review-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-.review-card {
-    background: var(--bg-light);
-    padding: 20px;
-    border-radius: 5px;
-    border-left: 4px solid var(--secondary);
-}
-.stars { color: #f1c40f; margin-bottom: 10px; }
-.review-text { font-style: italic; color: #555; font-size: 0.9rem; margin-bottom: 15px; }
-.reviewer-name { font-weight: bold; font-family: var(--font-heading); }
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .detail-container { flex-direction: column; }
-    .detail-info { text-align: center; }
-}
+    
     .hero h1 { font-size: 2.5rem; }
+    .page-header h1 { font-size: 2.2rem; }
+    
+    /* Cart Mobile */
+    .cart-sidebar { width: 100%; right: -100%; }
+    
+    /* Product Details Mobile */
+    .detail-container { flex-direction: column; padding: 0 20px; }
+    .detail-info { text-align: center; }
+    .detail-info h1 { font-size: 2rem; }
+    .benefits { text-align: left; display: inline-block; }
 }
