@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nisargam - Premium Handmade Soap</title>
+    <title>NisargamSoap - Premium Handmade Soap</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,17 +11,20 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">Nisargam<span>Care</span>.</div>
+        <div class="logo">Nisargam<span>Soap</span>.</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="Shop.html">Shop</a></li>
+            <li><a href="shop.html">Shop</a></li>
             <li><a href="about.html">Our Story</a></li>
             <li><a href="process.html">Process</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="nav-icons">
             <i class="fas fa-search"></i>
-            <i class="fas fa-shopping-bag"></i>
+            <div style="position: relative; display: inline-block;">
+                <i class="fas fa-shopping-bag" onclick="toggleCart()"></i>
+                <span id="navCartCount" class="nav-badge">0</span>
+            </div>
             <div class="hamburger" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
@@ -65,10 +68,10 @@
         <div class="product-grid">
             <div class="product-card">
                 <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Lavender Soap">
+                    <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Lavender Soap">
                     <span class="tag">New</span>
                     <div class="overlay">
-                        <button class="add-cart">Add to Cart</button>
+                        <button class="add-cart" onclick="addToCart('Lavender Bliss', 150, 'https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
                     </div>
                 </div>
                 <div class="details">
@@ -79,9 +82,9 @@
 
             <div class="product-card">
                 <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Charcoal Soap">
+                    <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Charcoal Soap">
                     <div class="overlay">
-                        <button class="add-cart">Add to Cart</button>
+                        <button class="add-cart" onclick="addToCart('Charcoal Detox', 180, 'https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
                     </div>
                 </div>
                 <div class="details">
@@ -92,9 +95,9 @@
 
             <div class="product-card">
                 <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1547793549-70fa8892b1a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Coffee Scrub Soap">
+                    <img src="https://images.unsplash.com/photo-1547793549-70fa8892b1a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Coffee Soap">
                     <div class="overlay">
-                        <button class="add-cart">Add to Cart</button>
+                        <button class="add-cart" onclick="addToCart('Coffee Scrub', 160, 'https://images.unsplash.com/photo-1547793549-70fa8892b1a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
                     </div>
                 </div>
                 <div class="details">
@@ -120,25 +123,42 @@
             <div class="footer-col">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="Shop.html">Shop</a></li>
+                    <li><a href="shop.html">Shop</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="terms.html">T&C (Terms)</a></li>
+                    <li><a href="terms.html">T&C</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Contact</h3>
                 <p>Rashin, Ahmednagar - 414403</p>
                 <p>+91 7385585398</p>
-                <p>Support@nisargamcare.in</p>
                 <div class="socials">
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-facebook"></i>
-                    <i class="fab fa-Email"></i>
                 </div>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 NisargamSoap</p>
+            <p>&copy; 2025 NisargamSoap. Designed by Aditya Shete.</p>
         </div>
     </footer>
+
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart (<span id="cartCount">0</span>)</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cartItems" class="cart-items">
+            <p style="text-align:center; margin-top:20px;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-price">Total: ₹<span id="cartTotal">0</span></div>
+            <button onclick="checkoutWhatsApp()" class="btn" style="width: 100%;">Checkout on WhatsApp <i class="fab fa-whatsapp"></i></button>
+        </div>
+    </div>
+    <div id="cartOverlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
