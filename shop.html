@@ -25,7 +25,9 @@
                 <i class="fas fa-shopping-bag" onclick="toggleCart()"></i>
                 <span id="navCartCount" class="nav-badge">0</span>
             </div>
-            <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
 
@@ -38,52 +40,61 @@
             
             <div class="product-card">
                 <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
+                    <a href="product.html?id=lavender">
+                        <img src="https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Lavender Soap">
+                    </a>
+                    <span class="tag">New</span>
                     <div class="overlay">
                         <button class="add-cart" onclick="addToCart('Lavender Bliss', 150, 'https://images.unsplash.com/photo-1600857062241-98e5dba7f214?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
                     </div>
                 </div>
                 <div class="details">
-                    <h3>Lavender Bliss</h3>
+                    <h3><a href="product.html?id=lavender">Lavender Bliss</a></h3>
                     <span class="price">₹150</span>
                 </div>
             </div>
 
             <div class="product-card">
                 <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
+                    <a href="product.html?id=charcoal">
+                        <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Charcoal Soap">
+                    </a>
                     <div class="overlay">
                         <button class="add-cart" onclick="addToCart('Charcoal Detox', 180, 'https://images.unsplash.com/photo-1607006344380-b6775a0824a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
                     </div>
                 </div>
                 <div class="details">
-                    <h3>Charcoal Detox</h3>
+                    <h3><a href="product.html?id=charcoal">Charcoal Detox</a></h3>
                     <span class="price">₹180</span>
                 </div>
             </div>
 
             <div class="product-card">
                 <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1547793549-70fa8892b1a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
+                    <a href="product.html?id=coffee">
+                        <img src="https://images.unsplash.com/photo-1547793549-70fa8892b1a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Coffee Soap">
+                    </a>
                     <div class="overlay">
                         <button class="add-cart" onclick="addToCart('Coffee Scrub', 160, 'https://images.unsplash.com/photo-1547793549-70fa8892b1a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
                     </div>
                 </div>
                 <div class="details">
-                    <h3>Coffee Scrub</h3>
+                    <h3><a href="product.html?id=coffee">Coffee Scrub</a></h3>
                     <span class="price">₹160</span>
                 </div>
             </div>
 
             <div class="product-card">
                 <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Soap">
+                    <a href="product.html?id=rose">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdd403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Rose Soap">
+                    </a>
                     <div class="overlay">
                         <button class="add-cart" onclick="addToCart('Rose Petal', 200, 'https://images.unsplash.com/photo-1596462502278-27bfdd403348?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60')">Add to Cart</button>
                     </div>
                 </div>
                 <div class="details">
-                    <h3>Rose Petal</h3>
+                    <h3><a href="product.html?id=rose">Rose Petal</a></h3>
                     <span class="price">₹200</span>
                 </div>
             </div>
@@ -117,7 +128,7 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 NisargamSoap.</p>
+            <p>&copy; 2025 NisargamSoap. Designed by Aditya Shete.</p>
         </div>
     </footer>
 
@@ -137,5 +148,11 @@
     <div id="cartOverlay" class="cart-overlay" onclick="toggleCart()"></div>
 
     <script src="script.js"></script>
+    <script>
+        // Page Load झाल्यावर कार्ट अपडेट राहण्यासाठी
+        window.onload = function() {
+            updateCartUI();
+        }
+    </script>
 </body>
 </html>
