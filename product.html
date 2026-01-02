@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - NisargamSoap</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Nisargam<span>Soap</span>.</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <div style="position: relative; display: inline-block;">
+                <i class="fas fa-shopping-bag" onclick="toggleCart()"></i>
+                <span id="navCartCount" class="nav-badge">0</span>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <section class="product-detail section-padding">
+        <div class="detail-container">
+            <div class="detail-img">
+                <img id="pImg" src="" alt="Product Image">
+            </div>
+
+            <div class="detail-info">
+                <h4 id="pCategory">Handmade Soap</h4>
+                <h1 id="pName">Product Name</h1>
+                <h2 class="price">₹<span id="pPrice">0</span></h2>
+                
+                <p id="pDesc" class="description">Loading description...</p>
+
+                <ul class="benefits">
+                    <li><i class="fas fa-check"></i> 100% Chemical Free</li>
+                    <li><i class="fas fa-check"></i> Suitable for all skin types</li>
+                    <li><i class="fas fa-check"></i> Infused with Natural Oils</li>
+                </ul>
+
+                <button id="addBtn" class="btn" style="margin-top: 20px;">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="section-title">
+            <h2>Customer Reviews</h2>
+            <p>What people say about this soap</p>
+        </div>
+        <div class="review-grid" id="reviewContainer">
+            </div>
+    </section>
+
+    <footer>
+        <div class="copyright"><p>&copy; 2025 NisargamSoap.</p></div>
+    </footer>
+
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart (<span id="cartCount">0</span>)</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="total-price">Total: ₹<span id="cartTotal">0</span></div>
+            <button onclick="checkoutWhatsApp()" class="btn" style="width: 100%;">Checkout on WhatsApp <i class="fab fa-whatsapp"></i></button>
+        </div>
+    </div>
+    <div id="cartOverlay" class="cart-overlay" onclick="toggleCart()"></div>
+
+    <script src="script.js"></script>
+    <script>
+        // हे पेज लोड झाल्यावर प्रॉडक्टची माहिती भरेल
+        window.onload = function() {
+            loadProductDetails();
+            updateCartUI(); // कार्टचा आकडा अपडेट करण्यासाठी
+        }
+    </script>
+</body>
+</html>
